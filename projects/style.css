@@ -1,0 +1,47 @@
+html {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  span {
+    display: block;
+    color: blue;
+  }
+  .canvas {
+    margin: 100px auto 100px;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .button {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  #grey {
+    background: grey;
+    box-shadow: 1px 1px 50px grey;
+  }
+  
+  #white {
+    background: white;
+    box-shadow: 1px 1px 50px black;
+  }
+  #blue {
+    background: blue;
+    box-shadow: 1px 1px 50px blue;
+  }
+  #yellow {
+    background: yellow;
+    box-shadow: 1px 1px 50px yellow;
+  }
+  #black{
+    background: black;
+    box-shadow: 1px 1px 50px black;
+  }
+  h2{
+    font-size: 15px;
+  }

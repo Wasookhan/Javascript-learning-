@@ -3,35 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>quote generator</title>
     <link rel="stylesheet" href="style.css" />
-    <title>JavaScript Background Color Switcher</title>
   </head>
   <body>
-    <div class="canvas">
-      <!-- <a
-        style="
-          background-color: #fff;
-          padding: 10px 30px;
-          border-radius: 8px;
-          color: #212121;
-          text-decoration: none;
-          border: 2px solid #212121;
-        "
-        href="../index.html"
-        >Back to Home Page</a
-      > -->
-      <h1 id="text"><span class="span">Color Scheme</span> Switcher by Wasoo</h1>
-      <span class="button" id="black"></span>
-      <span class="button" id="white"></span>
-      <span class="button" id="grey"></span>
-      <span class="button" id="blue"></span>
-      <span class="button" id="yellow"></span>
-      <h2 id = "text2">
-        Try clicking on one of the colors above
-        <span class="span">to change the background color of this page!</span>
-      </h2>
+    <div class="quote-box">
+      <h2>Quote of the day</h2>
+      <blockquote id="quote"></blockquote>
+      <span id="author">loading-----</span>
+
+      <div class="btn-container">
+        <button onclick=" getQuote(api_url);">New quote</button>
+        <button onclick="Tweet();">
+          <img
+            src="https://img.icons8.com/?size=100&id=A4DsujzAX4rw&format=png"
+            alt=""
+          />Tweet
+        </button>
+      </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+      const quote = document.querySelector("#quote");
+      const author = document.querySelector("#author");
+      const api_url = "https://api.quotable.io/random";
+      async function getQuote(url) {
+        const response = await fetch(url);
+        var data = await response.json();
+        quote.innerHTML = data.content;
+        author.innerHTML = data.author;
+      }
+
+      getQuote(api_url);
+      function Tweet() {
+        window.open(
+          "https://twitter.com/intent/tweet?text=" +
+            quote.innerHTML +
+            author.innerHTML,
+          "width=600px",
+          "height=600px"
+        );
+      }
+    </script>
   </body>
 </html>
